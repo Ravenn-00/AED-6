@@ -30,7 +30,8 @@ class PriorityQueueLinkSort<E,N> implements PriorityQueue<E,N> {
     // include here your code
     }
     public E front() throws ExceptionIsEmpty {
-    // include here your code }
+    // include here your code 
+    }
     public boolean isEmpty() {
     // include here your code
     }

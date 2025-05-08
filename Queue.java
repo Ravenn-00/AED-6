@@ -4,4 +4,4 @@ public interface Queue<E> {
     E front() throws ExceptionIsEmpty;
     E back() throws ExceptionIsEmpty;
     boolean isEmpty();
-} 
+}

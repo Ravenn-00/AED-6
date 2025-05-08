@@ -14,15 +14,23 @@ class QueueLink<E> implements Queue<E> {
         this.last = aux;
     }
     public E dequeue() throws ExceptionIsEmpty {
-
+        if (this.isEmpty()) throw new ExceptionIsEmpty("Queue vacia");
+        E data = first.getData();
+        first = first.getNext();
+        if (first == null) 
+            last = null;
+        return data;
     }
     public E back() throws ExceptionIsEmpty {
-
+        if (this.isEmpty()) throw new ExceptionIsEmpty("Queue vacia");
+        return last.getData();
     }
     public E front() throws ExceptionIsEmpty {
-
+        if (this.isEmpty()) throw new ExceptionIsEmpty("Queue vacia");
+        return first.getData();    
+    }
     public boolean isEmpty() {
-
+        return first == null;
     }
     public String toString(){
 
