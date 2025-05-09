@@ -1,13 +1,14 @@
 class QueueLink<E> implements Queue<E> {
     private Node<E> first;
     private Node<E> last;
+    private Node<E> var;
     public QueueLink(){
         this.first = null;
         this.last = null;
     }
     public void enqueue(E x) {
         Node<E> aux = new Node<E>(x);
-        if (this.isEmpty()) {
+        if (this.isEmpty())
             this.first = aux;
         else
             this.last.setNext(aux);
@@ -32,7 +33,13 @@ class QueueLink<E> implements Queue<E> {
     public boolean isEmpty() {
         return first == null;
     }
+    @Override
     public String toString(){
-
+        String s = "Queue: ";
+        while (var != last) {
+            var = var.getNext();
+            s += var.getData() + " ";
+        }
+        return s;
     }
 }
