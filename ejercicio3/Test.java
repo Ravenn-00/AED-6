@@ -5,18 +5,19 @@ import actividades.PriorityQueue;
 public class Test {
     public static void main(String[] args) {
         try {
-            PriorityQueue<String, Integer> priorityQueue = new PriorityQueueLinked<>(3);
-            priorityQueue.enqueue("Bajo", 0);
-            priorityQueue.enqueue("Medio", 1);
-            priorityQueue.enqueue("Alto", 2);
-            priorityQueue.enqueue("Muy Alto", 2);
+            PriorityQueue<String, Integer> priorityQueue = new PriorityQueueLinked<>(4);
+            priorityQueue.enqueue("bajo", 0);
+            priorityQueue.enqueue("medio", 1);
+            priorityQueue.enqueue("alto", 2);
+            priorityQueue.enqueue("muy alto", 3);
 
             System.out.println(priorityQueue);
 
-            System.out.println("Front: " + priorityQueue.front());
-            System.out.println("Back: " + priorityQueue.back());
-            System.out.println("Dequeue: " + priorityQueue.dequeue());
-            System.out.println("Result: \n" + priorityQueue);
+            System.out.println("front: " + priorityQueue.front());
+            System.out.println("back: " + priorityQueue.back());
+            System.out.println("dequeue: " + priorityQueue.dequeue());
+            System.out.println("++++++++++++++");
+            System.out.println("result: " + priorityQueue);
         } catch (ExceptionIsEmpty e) {
             System.out.println(e.getMessage());
         } catch (IllegalArgumentException e) {

@@ -37,10 +37,10 @@ public class QueueLink<E> implements Queue<E> {
     public String toString(){
         String s = "Queue: ";
         Node<E> var = first;
-        while (var != last) {
+        while (var != null) {
             s += var.getData() + " ";
             var = var.getNext();
         }
-        return s.trim();
+        return s;
     }
 }
