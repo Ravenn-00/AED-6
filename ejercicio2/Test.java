@@ -15,6 +15,8 @@ public class Test {
             System.out.println("dequeue: " + intQueue.dequeue());
             System.out.println("result: " + intQueue);
 
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+
             Queue<String> stringQueue = new QueueArray<>(3);
             stringQueue.enqueue("Hello");
             stringQueue.enqueue("World");

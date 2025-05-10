@@ -17,10 +17,16 @@ public class QueueArray<E> implements Queue<E> {
         this.size = 0;
     }
     @Override
-    public void enqueue(E x) {
-        last = (last + 1) % capacity;
+    public void enqueue(E x) throws ExceptionIsEmpty {
+        if (isFull()) {
+            throw new ExceptionIsEmpty("queue llena");
+        }
+        last = (last + 1);
+        if (last == capacity) {
+            last = 0;
+        }
         array[last] = x;
-        size++;
+        size += 1;
     }
     @Override
     public E dequeue() throws ExceptionIsEmpty {
@@ -29,8 +35,11 @@ public class QueueArray<E> implements Queue<E> {
         }
         E data = array[first];
         array[first] = null;
-        first = (first + 1) % capacity;
-        size--;
+        first = first + 1;
+        if (first == capacity) {
+            first = 0;
+        }
+        size -= 1;
         return data;
     }
     @Override

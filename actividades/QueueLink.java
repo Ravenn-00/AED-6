@@ -1,8 +1,7 @@
 package actividades;
-class QueueLink<E> implements Queue<E> {
+public class QueueLink<E> implements Queue<E> {
     private Node<E> first;
     private Node<E> last;
-    private Node<E> var;
     public QueueLink(){
         this.first = null;
         this.last = null;
@@ -37,10 +36,11 @@ class QueueLink<E> implements Queue<E> {
     @Override
     public String toString(){
         String s = "Queue: ";
+        Node<E> var = first;
         while (var != last) {
-            var = var.getNext();
             s += var.getData() + " ";
+            var = var.getNext();
         }
-        return s;
+        return s.trim();
     }
 }
