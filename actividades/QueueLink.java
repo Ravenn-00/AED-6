@@ -1,3 +1,4 @@
+package actividades;
 class QueueLink<E> implements Queue<E> {
     private Node<E> first;
     private Node<E> last;

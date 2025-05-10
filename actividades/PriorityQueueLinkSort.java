@@ -1,3 +1,4 @@
+package actividades;
 class PriorityQueueLinkSort<E,N> implements PriorityQueue<E,N> {
     class EntryNode{
         E data;
