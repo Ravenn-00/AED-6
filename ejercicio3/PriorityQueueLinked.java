@@ -8,7 +8,7 @@ public class PriorityQueueLinked<E> implements PriorityQueue<E, Integer> {
     private int priorities;
     @SuppressWarnings("unchecked")
     public PriorityQueueLinked(int priorities) {
-        if (priorities <= 0) {
+        if (priorities < 0) {
             throw new IllegalArgumentException("prioridad menor 0");
         }
         this.priorities = priorities;

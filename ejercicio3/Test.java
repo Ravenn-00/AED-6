@@ -9,7 +9,8 @@ public class Test {
             priorityQueue.enqueue("bajo", 0);
             priorityQueue.enqueue("medio", 1);
             priorityQueue.enqueue("alto", 2);
-            priorityQueue.enqueue("muy alto", 3);
+            priorityQueue.enqueue("muy alto 1", 3);
+            priorityQueue.enqueue("muy alto 2", 3);
 
             System.out.println(priorityQueue);
 
@@ -19,8 +20,6 @@ public class Test {
             System.out.println("++++++++++++++");
             System.out.println("result: " + priorityQueue);
         } catch (ExceptionIsEmpty e) {
-            System.out.println(e.getMessage());
-        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
