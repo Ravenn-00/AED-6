@@ -1,74 +1,73 @@
 package ejercicio2;
 import actividades.ExceptionIsEmpty;
+import actividades.Node;
 import actividades.Queue;
 
 public class QueueArray<E> implements Queue<E> {
-    private E[] array;
-    private int first;
-    private int last;
+
+    private Node<E> first;
+    private Node<E> last;
     private int size;
-    private int capacity;
-    @SuppressWarnings("unchecked")
-    public QueueArray(int capacity) {
-        this.capacity = capacity;
-        this.array = (E[]) new Object[capacity];
-        this.first = 0;
-        this.last = -1;
+
+    public QueueArray() {
+        this.first = null;
+        this.last = null;
         this.size = 0;
     }
+
     @Override
     public void enqueue(E x) throws ExceptionIsEmpty {
-        if (isFull()) {
-            throw new ExceptionIsEmpty("queue llena");
+        Node<E> newNode = new Node<>(x);
+        if (isEmpty()) {
+            first = newNode;
+            last = newNode;
+        } else {
+            last.next = newNode;
+            last = newNode;
         }
-        last = (last + 1);
-        if (last == capacity) {
-            last = 0;
-        }
-        array[last] = x;
         size += 1;
     }
+
     @Override
     public E dequeue() throws ExceptionIsEmpty {
         if (isEmpty()) {
             throw new ExceptionIsEmpty("queue vacia");
         }
-        E data = array[first];
-        array[first] = null;
-        first = first + 1;
-        if (first == capacity) {
-            first = 0;
-        }
+        E data = first.data;
+        first = first.next;
         size -= 1;
         return data;
     }
+
     @Override
     public E front() throws ExceptionIsEmpty {
         if (isEmpty()) {
-            throw new ExceptionIsEmpty("queue llena");
+            throw new ExceptionIsEmpty("queue vacia");
         }
-        return array[first];
+        return first.data;
     }
+
     @Override
     public E back() throws ExceptionIsEmpty {
         if (isEmpty()) {
             throw new ExceptionIsEmpty("queue vacia");
         }
-        return array[last];
+        return last.data;
     }
+
     @Override
     public boolean isEmpty() {
         return size == 0;
     }
-    public boolean isFull() {
-        return size == capacity;
-    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Queue: ");
-        for (int i = 0; i < size; i++) {
-            sb.append(array[(first + i) % capacity]).append(" ");
+        String s = "queue: ";
+        Node<E> current = first;
+        while (current != null) {
+            s += current.data + " ";
+            current = current.next;
         }
-        return sb.toString().trim();
+        return s;
     }
 }

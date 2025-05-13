@@ -5,7 +5,7 @@ import actividades.Queue;
 public class Test {
     public static void main(String[] args) {
         try {
-            Queue<Integer> intQueue = new QueueArray<>(5);
+            Queue<Integer> intQueue = new QueueArray<>();
             intQueue.enqueue(10);
             intQueue.enqueue(20);
             intQueue.enqueue(30);
@@ -17,7 +17,7 @@ public class Test {
 
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-            Queue<String> stringQueue = new QueueArray<>(3);
+            Queue<String> stringQueue = new QueueArray<>();
             stringQueue.enqueue("Hello");
             stringQueue.enqueue("World");
             stringQueue.enqueue("!!!");
